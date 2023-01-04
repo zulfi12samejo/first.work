@@ -1,4 +1,5 @@
 <?php
+//"use a server site is local host"//
 	$server = 'localhost';
 	$user   = 'root';
 	$pass   = '';

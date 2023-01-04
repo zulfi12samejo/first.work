@@ -41,9 +41,10 @@
 			$sql = "SELECT * FROM post WHERE user_id=:e";
 			$query = $con->prepare($sql);
 			$query->bindParam(":e",$id);
+	//"in this we will execute the  sql query "//
 			$exe = $query->execute();
 			$data  = $query->fetchAll();
-		?>
+		?
 
 			<table class="table table-striped">
 				<thead>
@@ -70,6 +71,7 @@
               class="btn btn-primary"> 
                       Update
                    </button>
+			//" in this class we can change the button name is danger"//
                   <a class="btn btn-danger"> 
                       Delete
                    </button>
@@ -84,6 +86,7 @@
 
 			</table>
 	<?php
+	//"heading locstion update the location of login page"//
 	}else{
 		header("location:login.php");
 	}
@@ -103,12 +106,14 @@
 	
 
 body {
+	//"in this set background colour is set "//
   //background: #1f253d;
 }
 /*------------Google Font------------*/
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,400i,700");
 /*------------Bases------------*/
 *
+	//"we will set a margin nad padding in box sizing"//
 {
   margin:0;
   padding:0;
@@ -116,14 +121,17 @@ body {
 }
 body
 {
+	//"we will add a font-family is insert"//
   font-family: Montserrat, sans-serif;
 }
 ul
 {
+	//" not inserted  list-style none"//
   list-style:none;
 }
 a
 {
+	//"text-decoration not inserted"//
   text-decoration:none;
   color:black;
 }
@@ -132,6 +140,7 @@ a
 {
   display:flex;
   justify-content:space-between;
+	//"we will align item in the center "//
   align-items:center;
   background-color:#fefefe;
   color:black;
@@ -153,6 +162,7 @@ a
 }
 .navbar-links li a 
 {
+//"nav bar we add colour and padding and display"//
   color:black;
   padding:1rem;
   display:block;
@@ -203,6 +213,7 @@ a
   }
   .navbar-links li 
   {
+	  //"text align in the center"//
     text-align:center;
   }
   .navbar-links li a 

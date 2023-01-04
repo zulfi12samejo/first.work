@@ -2,11 +2,13 @@
 include("db.php");
    $ID = $_GET['id'];
 if(isset($_POST['commentBtn'])){
+   //"id name with ser name"//
 
          $id = $_SESSION['user'][0]['id'];
         $postId = $_POST['post_id'];
         $comment = $_POST['comment'];
          if($con){  
+           //" if you will insert comment then add user_id post_id"//
         $sql = "INSERT INTO comment (user_id,post_id,comment)
         VALUES (:u,:p,:c)";
         $query = $con->prepare($sql);
@@ -59,13 +61,14 @@ $postId = $_POST['post_id'];
             <div class="container mt-5">
                <div class="row">
 
-                  
+                  //"will set the session user"//
                       <?php 
                            if(isset($_SESSION['user'])) {?>
                            <div class="col-md-2">
                      <div class="col-md-12">
                            <?php
                                $USER = $_SESSION['user'];
+                              //"heading 6 tet in the center user name"//
                               ?> <h6 class="text-center">   <?php echo $USER[0]['name'];?>
                               </h6>
                         
@@ -95,7 +98,8 @@ $postId = $_POST['post_id'];
                                 <div class="form-control">
                                    Viewed Post
                                 </div>
- <br>
+ <br>                                
+                  //"link is used to operation perform in logout them"//
                                 <div class="form-control">
                                   <a href="operation/logout.php"> Log out </a>
                                 </div>
@@ -103,6 +107,7 @@ $postId = $_POST['post_id'];
                            <?php
                                  }
                                  else{
+                                    //"link is added for login in the website page" //
                                     echo "<a href='login.php'> Login </a>";
                                  }
                               ?>
@@ -159,6 +164,7 @@ $postId = $_POST['post_id'];
                                           <div class="col-md-3">
                                                 <form method="post">
                                              <?php
+                                           //in"in the sql select like pst where user id is uid and post id pid"//
                                                 $sql = "SELECT * from like_post WHERE user_id=:uid AND post_id=:pid";
                                                 $query = $con->prepare($sql);
                                                 $query->bindParam(':uid',$id);
@@ -167,6 +173,7 @@ $postId = $_POST['post_id'];
                                                 $d = $query->fetchAll();
                                              if(count($d)>0){
                                                 ?>
+                                                   //"button name is like insert"//
                                                    <button class="btn btn-primary" name="btnLike" value="liked"/>   
                                                    <input type="hidden" name="isLiked" value="y">
                                                    <input type="hidden" name="likeId" value="<?php  echo $d[0]['like_id']?>">
@@ -174,6 +181,7 @@ $postId = $_POST['post_id'];
                                                 }
                                                 else{
                                              ?>
+                                                   //"button name like is inserted"//
                                                <button name="btnLike" value="like"/>   
                                                    <input type="hidden" name="isLiked" value="n">
                                              <?php } ?>
@@ -195,6 +203,7 @@ $postId = $_POST['post_id'];
                                           $query = $con->prepare($sql);
                                           $query->bindParam(':ui',$comment[$i]['user_id']);
                                           $res = $query->execute();
+                                          //"in this user data is inserted then fetch all "//
                                           $userData = $query->fetchAll();
                                           if(count($userData)>0){
                                           ?>

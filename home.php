@@ -9,6 +9,7 @@ include("db.php");
       $u       = $_POST['userId'];
       if($value == "follow"){
          if($con){  
+            //" in the sql statement  follow -to or follow- by "//
         $sql = "INSERT INTO follow (follow_to,follow_by)
         VALUES (:u,:p)";
         $query = $con->prepare($sql);
@@ -17,6 +18,7 @@ include("db.php");
         $res = $query->execute();
       }
    }else{
+        //" in the sql query delete where follow by user_ id"//
          $sql = "DELETE from follow  WHERE follow_by = :uid";
          $query = $con->prepare($sql);
          $query->bindParam(':uid',$id);
@@ -25,6 +27,7 @@ include("db.php");
 
    }
 if(isset($_POST['commentBtn'])){
+   //"in the session  use user id and post id"//
 
          $id = $_SESSION['user'][0]['id'];
         $postId = $_POST['post_id'];
